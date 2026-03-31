@@ -337,6 +337,22 @@
   <footer>
     <p>© 2026 Briyant Soley Signo 1815 — All Rights Reserved.</p>
   </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const langButtons = document.querySelectorAll("[data-lang]");
+  const elements = document.querySelectorAll("[data-text]");
 
+  langButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("data-lang");
+
+      elements.forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
